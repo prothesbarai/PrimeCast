@@ -2,4 +2,38 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <color name="red">#E91E63</color>
+    <color name="transparent">#00FFFFFF</color>
+    <color name="yellow">#FFEB3B</color>
+
+    <!--Neumorphism Color List-->
+    <color name="primary">#2D7DF6</color>
+    <color name="background">#E4EBF5</color>
+    <color name="primary_text">#0B0D0C</color>
+    <color name="secondary_text">#7D818A</color>
+    <color name="dark_shadow">#CDD5EA</color>
+    <color name="light_shadow">#F8F9FE</color>
+    <color name="dark_icon">#212121</color>
+
+
+    <color name="color1">#fa0553</color>
+    <color name="color2">#760d6a</color>
+    <color name="color3">#9450fd</color>
+    <color name="color4">#6071ff</color>
+    <color name="color5">#1aa3e7</color>
+    <color name="color6">#95feff</color>
+    <color name="color7">#6071ff</color>
+
+
+    <array name="funny_color">
+        <item>@color/color1</item>
+        <item>@color/color2</item>
+        <item>@color/color3</item>
+        <item>@color/color4</item>
+        <item>@color/color5</item>
+        <item>@color/color6</item>
+        <item>@color/color7</item>
+    </array>
+
 </resources>
