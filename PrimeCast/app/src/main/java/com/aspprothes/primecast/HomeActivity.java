@@ -27,6 +27,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
 import com.aspprothes.primecast.netconnectioncheck.Common;
+import com.aspprothes.primecast.tvplayer.ExoPlayerActivity;
 import com.bumptech.glide.Glide;
 import com.mursaat.extendedtextview.AnimatedGradientTextView;
 
@@ -141,6 +142,15 @@ public class HomeActivity extends AppCompatActivity {
                     .circleCrop()
                     .into(gridImgView);
             gridAnimatedTxt.setText(""+getTvTitle);
+
+
+            itemGridLinear.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    ExoPlayerActivity.get_tv_url = getTvUrl;
+                    startActivity(new Intent(HomeActivity.this, ExoPlayerActivity.class));
+                }
+            });
 
 
             return convertView;
