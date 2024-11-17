@@ -6,6 +6,7 @@ import android.net.NetworkInfo;
 
 public class Common {
     public static boolean isNetworkConnected(Context context){
+
         ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
         if (connectivityManager != null){
             NetworkInfo[] networkInfos = connectivityManager.getAllNetworkInfo();
@@ -18,5 +19,6 @@ public class Common {
             }
         }
         return false;
+
     }
 }

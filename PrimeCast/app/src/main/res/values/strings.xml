@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">PrimeCast</string>
+
+
+    <string name="carousel_no_1">https://raw.githubusercontent.com/developerprothes/emergency_call_apps_images/refs/heads/main/PrimeCastTV/banner%201.jpg</string>
+    <string name="carousel_no_2">https://raw.githubusercontent.com/developerprothes/emergency_call_apps_images/refs/heads/main/PrimeCastTV/banner%202.jpg</string>
+    <string name="carousel_no_3">https://raw.githubusercontent.com/developerprothes/emergency_call_apps_images/refs/heads/main/PrimeCastTV/banner%203.jpg</string>
+    <string name="carousel_no_4">https://raw.githubusercontent.com/developerprothes/emergency_call_apps_images/refs/heads/main/PrimeCastTV/banner%204.png</string>
+    <string name="carousel_no_5">https://raw.githubusercontent.com/developerprothes/emergency_call_apps_images/refs/heads/main/PrimeCastTV/banner%205.jpg</string>
+
 </resources>

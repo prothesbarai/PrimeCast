@@ -36,13 +36,14 @@ public class SplashScreen extends AppCompatActivity {
         );
         setContentView(R.layout.splash_screen);
 
+
+
         roundedImg = findViewById(R.id.roundedImg);
         animatedTextView = findViewById(R.id.animatedTextView);
         animation1 = AnimationUtils.loadAnimation(SplashScreen.this,R.anim.up_to_down);
         animation2 = AnimationUtils.loadAnimation(SplashScreen.this,R.anim.zoom_in_fade);
         roundedImg.setAnimation(animation1);
         animatedTextView.setAnimation(animation2);
-
 
         Thread thread = new Thread(new Runnable() {
             @Override
@@ -54,7 +55,7 @@ public class SplashScreen extends AppCompatActivity {
 
         thread.start();
 
-    }
+    } /////////////////////// ============================= onCreate Method End Here ==================================/////////////
 
     public void startProgress(){
         try {
