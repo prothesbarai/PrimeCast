@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
-    android:gravity="center"
+    xmlns:tools="http://schemas.android.com/tools"
     android:background="@color/black"
+    tools:ignore="MissingConstraints"
+    android:layout_gravity="center"
     >
 
 
@@ -19,9 +20,28 @@
         app:buffered_color="@color/white"
         app:unplayed_color="@color/red"
         app:scrubber_color="@color/color5"
-        app:show_buffering="when_playing"
         app:controller_layout_id="@layout/custom_controls_player"
         />
 
+    <!--
+    If you Add This SpinKitView Progress So Remove first
+        app:show_buffering="when_playing"
+    from PlayerView..... Then Write Code Java File
+    Exoplayer Custom Progress Bar Add Start Here Lines
+    -->
 
-</LinearLayout>
+    <com.github.ybq.android.spinkit.SpinKitView
+        android:id="@+id/spin_kit"
+        style="@style/SpinKitView.Large.Circle"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center"
+        app:SpinKit_Color="@color/background"
+        app:layout_constraintBottom_toBottomOf="@id/playerView"
+        app:layout_constraintEnd_toEndOf="@id/playerView"
+        app:layout_constraintStart_toStartOf="@id/playerView"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

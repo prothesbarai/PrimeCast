@@ -2,6 +2,7 @@ package com.aspprothes.primecast.tvplayer;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.media3.common.MediaItem;
+import androidx.media3.common.Player;
 import androidx.media3.exoplayer.ExoPlayer;
 import androidx.media3.ui.PlayerView;
 
@@ -14,14 +15,16 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.aspprothes.primecast.R;
 import com.aspprothes.primecast.netconnectioncheck.Common;
+import com.github.ybq.android.spinkit.sprite.Sprite;
+import com.github.ybq.android.spinkit.style.Circle;
 
 public class ExoPlayerActivity extends AppCompatActivity {
     public static String get_tv_url = "";
-    String url = "https://test-streams.mux.dev/x36xhzz/x36xhzz.m3u8";
     private ImageView exoBack,exoBacward,exoForward,exoPlayPause,exoFull;
     private TextView exoTitle,exoPosition,exoDuration;
     private PlayerView playerView;
@@ -55,7 +58,19 @@ public class ExoPlayerActivity extends AppCompatActivity {
         exoTitle = playerView.findViewById(R.id.exoTitle);
         exoPosition = playerView.findViewById(R.id.exoPosition);
         exoDuration = playerView.findViewById(R.id.exoDuration);
+
         exoTitle.setText("Prothes Barai");
+
+
+        exoPlayer = new ExoPlayer.Builder(this).build();
+        playerView.setPlayer(exoPlayer);
+        MediaItem mediaItem = MediaItem.fromUri(get_tv_url);
+        exoPlayer.setMediaItem(mediaItem);
+        exoPlayer.prepare();
+        exoPlayer.setPlayWhenReady(true);
+        exoPlayer.play();
+
+
 
         exoPlayPause.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -106,13 +121,26 @@ public class ExoPlayerActivity extends AppCompatActivity {
         });
 
 
-        exoPlayer = new ExoPlayer.Builder(this).build();
-        playerView.setPlayer(exoPlayer);
-        MediaItem mediaItem = MediaItem.fromUri(url);
-        exoPlayer.setMediaItem(mediaItem);
-        exoPlayer.prepare();
-        exoPlayer.setPlayWhenReady(true);
-        exoPlayer.play();
+        // ===================================================== Exoplayer Custom Loader Start Here ==========================================================
+        ProgressBar progressBar = (ProgressBar)findViewById(R.id.spin_kit);
+        Sprite circle = new Circle();
+        progressBar.setIndeterminateDrawable(circle);
+
+        exoPlayer.addListener(new Player.Listener() {
+            @Override
+            public void onPlaybackStateChanged(int state) {
+                if (state == Player.STATE_READY){
+                    progressBar.setVisibility(View.GONE);
+                    exoPlayPause.setVisibility(View.VISIBLE);
+                }else if (state == Player.STATE_BUFFERING){
+                    progressBar.setVisibility(View.VISIBLE);
+                    exoPlayPause.setVisibility(View.INVISIBLE);
+                }else{
+                    progressBar.setVisibility(View.GONE);
+                    exoPlayPause.setVisibility(View.VISIBLE);
+                }
+            }
+        });// ===================================================== Exoplayer Custom Loader End Here ==========================================================
 
 
 

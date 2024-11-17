@@ -5,7 +5,8 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="#33000000"
-    tools:ignore="MissingConstraints">
+    tools:ignore="MissingConstraints"
+    >
 
     <ImageView
         android:layout_width="32dp"
@@ -37,7 +38,7 @@
         android:layout_width="32dp"
         android:layout_height="32dp"
         android:id="@+id/exoPlayPause"
-        android:visibility="visible"
+        android:visibility="invisible"
         android:src="@drawable/pause"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"
