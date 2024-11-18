@@ -147,6 +147,7 @@ public class HomeActivity extends AppCompatActivity {
             itemGridLinear.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    ExoPlayerActivity.getTvName = getTvTitle;
                     ExoPlayerActivity.get_tv_url = getTvUrl;
                     startActivity(new Intent(HomeActivity.this, ExoPlayerActivity.class));
                 }

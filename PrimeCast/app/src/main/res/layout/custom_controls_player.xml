@@ -47,6 +47,27 @@
         />
 
     <ImageView
+        android:id="@+id/exoSpeed"
+        android:layout_width="28dp"
+        android:layout_height="28dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="10dp"
+        android:src="@drawable/baseline_slow_motion_video_24"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+    
+    <ImageView
+        android:layout_width="28dp"
+        android:layout_height="28dp"
+        android:src="@drawable/outline_aspect_ratio_24"
+        android:id="@+id/exoResize"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="15dp"
+        app:layout_constraintEnd_toStartOf="@id/exoSpeed"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+    <ImageView
         android:layout_width="32dp"
         android:layout_height="32dp"
         android:id="@+id/exoForward"
@@ -83,7 +104,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/exoPosition"
+            android:id="@+id/currentTimeView"
             android:layout_marginStart="10dp"
             android:text="00:00"
             android:textSize="14sp"
@@ -95,7 +116,7 @@
             android:layout_width="0dp"
             android:layout_height="18dp"
             android:layout_weight="1"
-            android:id="@+id/exoProgressPlaceholder"
+            android:id="@+id/timeBar"
             />
 
         <TextView
