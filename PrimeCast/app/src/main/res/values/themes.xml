@@ -9,4 +9,9 @@
 
     <style name="Theme.PrimeCast" parent="Base.Theme.PrimeCast" />
 
+
+    <!-- Exoplayer Setting Option Track Theme Style -->
+    <style name="TrackSelectionDialogThemeOverlay" parent="ThemeOverlay.AppCompat.Dialog.Alert">
+        <item name="windowNoTitle">false</item>
+    </style>
 </resources>

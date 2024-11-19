@@ -24,6 +24,7 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import com.aspprothes.primecast.R;
+import com.aspprothes.primecast.exoplayersettingtrack.TrackSelectionDialog;
 import com.github.ybq.android.spinkit.sprite.Sprite;
 import com.github.ybq.android.spinkit.style.Circle;
 
@@ -32,8 +33,9 @@ public class ExoPlayerActivity extends AppCompatActivity {
     public static String getTvName = "";
     private String[] speeds = {"0.5x","0.75x","Normal","1.25x","1.5x"};
     private boolean isFullScreen = false;
+    private boolean isShowingTrackSelectionDialog;
     private int RESIZE_MODE = 0;
-    private ImageView exoBack,exoBacward,exoForward,exoPlayPause,exoFull,exoSpeed,exoResize;
+    private ImageView exoBack,exoBacward,exoForward,exoPlayPause,exoFull,exoSpeed,exoResize,exoQualitySetting;
     private TextView exoTitle,currentTimeView,exoDuration;
     private DefaultTimeBar timeBar;
     private PlayerView playerView;
@@ -69,6 +71,7 @@ public class ExoPlayerActivity extends AppCompatActivity {
         exoSpeed = playerView.findViewById(R.id.exoSpeed);
         exoResize = playerView.findViewById(R.id.exoResize);
         exoTitle = playerView.findViewById(R.id.exoTitle);
+        exoQualitySetting = playerView.findViewById(R.id.exoQualitySetting);
         currentTimeView = playerView.findViewById(R.id.currentTimeView);
         exoDuration = playerView.findViewById(R.id.exoDuration);
         timeBar = playerView.findViewById(R.id.timeBar);
@@ -108,6 +111,7 @@ public class ExoPlayerActivity extends AppCompatActivity {
                 exoPlayer.seekTo(exoPlayer.getCurrentPosition() + 10000);
             }
         });
+
         exoBacward.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -119,12 +123,14 @@ public class ExoPlayerActivity extends AppCompatActivity {
                 }
             }
         });
+
         exoBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 finish();
             }
         });
+
         exoFull.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -175,7 +181,6 @@ public class ExoPlayerActivity extends AppCompatActivity {
             }
         });
 
-
         exoResize.setOnClickListener(new View.OnClickListener() {
             @OptIn(markerClass = UnstableApi.class)
             @Override
@@ -196,7 +201,21 @@ public class ExoPlayerActivity extends AppCompatActivity {
             }
         });
 
-
+        exoQualitySetting.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // এই কোড টুকু লেখার পূর্বে অবশ্যই Step No -- Follow করতে হবে এবং ফাইল ডাউনলোড করে JAVA ফোল্ডারে এবং XML ফোল্ডারে দিয়ে নিতে হবে
+                if (!isShowingTrackSelectionDialog
+                        && TrackSelectionDialog.willHaveContent(exoPlayer)) {
+                    isShowingTrackSelectionDialog = true;
+                    TrackSelectionDialog trackSelectionDialog =
+                            TrackSelectionDialog.createForPlayer(
+                                    exoPlayer,
+                                    /* onDismissListener= */ dismissedDialog -> isShowingTrackSelectionDialog = false);
+                    trackSelectionDialog.show(getSupportFragmentManager(), /* tag= */ null);
+                }
+            }
+        });
 
 
 
@@ -261,6 +280,8 @@ public class ExoPlayerActivity extends AppCompatActivity {
         startUpdatingUI();
 
     }/////// ========================== onCreate Method End Here =====================================
+
+
 
 
     // This Class Write For TimeBar And Show Current Time ( Start Here ) ==================================================
