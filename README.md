@@ -6,7 +6,7 @@
 
 ## Installation
 
-### Step 1 : write this code :---- Manifest.xml 
+### Step 1 : write this code :---- Manifest.xml File
 
 ```xml
 

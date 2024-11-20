@@ -48,7 +48,7 @@ public class SplashScreen extends AppCompatActivity {
         Thread thread = new Thread(new Runnable() {
             @Override
             public void run() {
-                //startProgress();
+                startProgress();
                 goHomeActivity();
             }
         });
