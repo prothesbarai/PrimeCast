@@ -210,6 +210,7 @@ public class HomeActivity extends AppCompatActivity {
             AlertDialog alertDialog = new AlertDialog.Builder(this)
                     .setTitle("Warning")
                     .setMessage("Do you want to exit this app ?")
+                    .setIcon(getDrawable(R.drawable.alert_triangle_svgrepo_com))
                     .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
@@ -222,9 +223,17 @@ public class HomeActivity extends AppCompatActivity {
                             dialog.dismiss();
                         }
                     })
+                    .setNeutralButton("Developer Name", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            Toast.makeText(HomeActivity.this, "Prothes Barai", Toast.LENGTH_SHORT).show();
+                            dialog.dismiss();
+                        }
+                    })
                     .show();
             alertDialog.getButton(DialogInterface.BUTTON_POSITIVE).setTextColor(getResources().getColor(R.color.color5));
             alertDialog.getButton(DialogInterface.BUTTON_NEGATIVE).setTextColor(getResources().getColor(R.color.color5));
+            alertDialog.getButton(DialogInterface.BUTTON_NEUTRAL).setTextColor(getResources().getColor(R.color.color5));
 
         }else{
             super.onBackPressed();
