@@ -693,8 +693,6 @@ dependencyResolutionManagement {
 
 
 
-
-
 ### Drawable Resource [ Download After Extract Paste Drawable Folder ]
 - Download Zip File : [Click Here](https://github.com/prothesbarai/PrimeCast/blob/main/Exoplayer_Image_Resource.zip) 
 - OR [ Download From Drive ](https://drive.google.com/file/d/11vfdSJrm2EQM_iHwYb57kxlKQyCsn_2B/view?usp=sharing)
